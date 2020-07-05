@@ -77,7 +77,16 @@ public class TestConfigurations {
         return read("api_uri");
     }
 
+    private static String getApiToken1() {
+        return read("api_t1");
+    }
+    private static String getApiToken2() {
+        return read("api_t2");
+    }
+    private static String getApiToken3() {
+        return read("api_t3");
+    }
     public static String getApiToken() {
-        return read("api_token");
+        return getApiToken1() + getApiToken2() + getApiToken3();
     }
 }
