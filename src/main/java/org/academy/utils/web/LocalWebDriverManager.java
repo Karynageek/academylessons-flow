@@ -38,16 +38,13 @@ public class LocalWebDriverManager {
                DesiredCapabilities capabilities = new DesiredCapabilities();
                 capabilities.setBrowserName("chrome");
                 capabilities.setVersion("83.0");
-		capabilities.setCapability("platform", "win10");
-		capabilities.setCapability("selenium_version","3.141.59");
-		capabilities.setCapability("chrome.driver","83.0.4103.39");
                 capabilities.setCapability("enableVNC", true);
                 capabilities.setCapability("enableVideo", false);
 
                 RemoteWebDriver driver = null;
                 try {
                     driver = new RemoteWebDriver(
-                            new URL("http://" + runtime.getContainer("frosty_mclean").getIp() + ":4444/wd/hub"),
+                            new URL("http://selenoid:4444/wd/hub"),
 			capabilities
                     );
                 } catch (MalformedURLException e) {
@@ -60,7 +57,7 @@ public class LocalWebDriverManager {
                 DesiredCapabilities caps = DesiredCapabilities.chrome();
                 RemoteWebDriver wdriver = null;
                 try {
-                    wdriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
+                    wdriver = new RemoteWebDriver(new URL("http://selenoid:4444/wd/hub"), caps);
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }
