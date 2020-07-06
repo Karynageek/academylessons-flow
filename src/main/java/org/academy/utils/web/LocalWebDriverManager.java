@@ -34,25 +34,25 @@ public class LocalWebDriverManager {
 
                 chromeWebDriver.manage().window().maximize();
                 return chromeWebDriver;
-         //   case "chrome_remote_selenoid":
-           //    DesiredCapabilities capabilities = new DesiredCapabilities();
-             //   capabilities.setBrowserName("chrome");
-               // capabilities.setVersion("83.0");
-                //capabilities.setCapability("enableVNC", true);
-                //capabilities.setCapability("enableVideo", false);
+            case "chrome_remote_selenoid":
+             DesiredCapabilities capabilities = new DesiredCapabilities();
+                capabilities.setBrowserName("chrome");
+                capabilities.setVersion("83.0");
+                capabilities.setCapability("enableVNC", true);
+                capabilities.setCapability("enableVideo", false);
 
-               // RemoteWebDriver driver = null;
-                //try {
-                  //  driver = new RemoteWebDriver(
-                    //        new URL("http://localhost:4444/wd/hub"),
-			//capabilities
-                  //  );
-                //} catch (MalformedURLException e) {
-                //    e.printStackTrace();
-               // }
-               // driver.manage().timeouts().implicitlyWait(50000, TimeUnit.MILLISECONDS);
-               // driver.manage().window().maximize();
-               // return driver;
+                RemoteWebDriver driver = null;
+                try {
+                    driver = new RemoteWebDriver(
+                            new URL("http://localhost:4444/wd/hub"),
+			capabilities
+                    );
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+                driver.manage().timeouts().implicitlyWait(50000, TimeUnit.MILLISECONDS);
+                driver.manage().window().maximize();
+                return driver;
             case "chrome_remote_selenium":
                 DesiredCapabilities caps = DesiredCapabilities.chrome();
                 RemoteWebDriver wdriver = null;
