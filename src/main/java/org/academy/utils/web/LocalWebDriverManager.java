@@ -47,8 +47,8 @@ public class LocalWebDriverManager {
                 RemoteWebDriver driver = null;
                 try {
                     driver = new RemoteWebDriver(
-                            URI.create("http://localhost:4444/wd/hub").toURL(),
-                            capabilities
+                            new URL("http://" + runtime.getContainer("frosty_mclean").getIp() + ":4444/wd/hub"),
+			capabilities
                     );
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
