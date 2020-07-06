@@ -44,7 +44,7 @@ public class LocalWebDriverManager {
                 RemoteWebDriver driver = null;
                 try {
                     driver = new RemoteWebDriver(
-                            new URL("http://selenoid:4444/wd/hub"),
+                            new URL("http://localhost:4444/wd/hub"),
 			capabilities
                     );
                 } catch (MalformedURLException e) {
@@ -57,7 +57,7 @@ public class LocalWebDriverManager {
                 DesiredCapabilities caps = DesiredCapabilities.chrome();
                 RemoteWebDriver wdriver = null;
                 try {
-                    wdriver = new RemoteWebDriver(new URL("http://selenoid:4444/wd/hub"), caps);
+                    wdriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }
