@@ -23,17 +23,17 @@ public class LocalWebDriverManager {
     public static WebDriver getWebDriver(String browser) {
         switch (browser) {
             default:
-            case "chrome":
-                ChromeOptions options = new ChromeOptions();
-                String os = System.getProperty("os.name").toLowerCase().substring(0, 3);
-                String chromeBinary = "src/main/resources/chromedriver" + (os.equals("win") ? ".exe" : "");
-                System.setProperty("webdriver.chrome.driver", chromeBinary);
-                WebDriver chromeWebDriver = new ChromeDriver(options);
+            //case "chrome":
+              //  ChromeOptions options = new ChromeOptions();
+                //String os = System.getProperty("os.name").toLowerCase().substring(0, 3);
+                //String chromeBinary = "src/main/resources/chromedriver" + (os.equals("win") ? ".exe" : "");
+                //System.setProperty("webdriver.chrome.driver", chromeBinary);
+                //WebDriver chromeWebDriver = new ChromeDriver(options);
 
-                chromeWebDriver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
+              //  chromeWebDriver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
 
-                chromeWebDriver.manage().window().maximize();
-                return chromeWebDriver;
+              //  chromeWebDriver.manage().window().maximize();
+               // return chromeWebDriver;
             //case "chrome_remote_selenoid":
               //  DesiredCapabilities capabilities = new DesiredCapabilities();
               //  capabilities.setBrowserName("chrome");
