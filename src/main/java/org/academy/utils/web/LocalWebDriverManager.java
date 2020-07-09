@@ -34,36 +34,36 @@ public class LocalWebDriverManager {
 
               //  chromeWebDriver.manage().window().maximize();
                // return chromeWebDriver;
-            //case "chrome_remote_selenoid":
-              //  DesiredCapabilities capabilities = new DesiredCapabilities();
-              //  capabilities.setBrowserName("chrome");
-                //capabilities.setVersion("81.0");
-                //capabilities.setCapability("enableVNC", true);
-                //capabilities.setCapability("enableVideo", false);
+            case "chrome_remote_selenoid":
+                DesiredCapabilities capabilities = new DesiredCapabilities();
+                capabilities.setBrowserName("chrome");
+                capabilities.setVersion("81.0");
+                capabilities.setCapability("enableVNC", true);
+                capabilities.setCapability("enableVideo", false);
 
-               // RemoteWebDriver driver = null;
-             //   try {
-               //     driver = new RemoteWebDriver(
-                //            URI.create("http://selenoid:4444/wd/hub").toURL(),
-                //            capabilities
-               //     );
-             //   } catch (MalformedURLException e) {
-             //       e.printStackTrace();
-             //   }
-             //   driver.manage().timeouts().implicitlyWait(40000, TimeUnit.MILLISECONDS);
-             //   driver.manage().window().maximize();
-             //   return driver;
-            case "chrome_remote_selenium":
-                DesiredCapabilities caps = DesiredCapabilities.chrome();
-                RemoteWebDriver wdriver = null;
+                RemoteWebDriver driver = null;
                 try {
-                    wdriver = new RemoteWebDriver(new URL("http://localhost:4445/wd/hub"), caps);
+                    driver = new RemoteWebDriver(
+                            URI.create("http://selenoid:4444/wd/hub").toURL(),
+                            capabilities
+                  );
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }
-                wdriver.manage().timeouts().implicitlyWait(40000, TimeUnit.MILLISECONDS);
-                wdriver.manage().window().maximize();
-                return wdriver;
+                driver.manage().timeouts().implicitlyWait(40000, TimeUnit.MILLISECONDS);
+                driver.manage().window().maximize();
+                return driver;
+          //  case "chrome_remote_selenium":
+           //     DesiredCapabilities caps = DesiredCapabilities.chrome();
+           //     RemoteWebDriver wdriver = null;
+            //    try {
+           //         wdriver = new RemoteWebDriver(new URL("http://localhost:4445/wd/hub"), caps);
+            //    } catch (MalformedURLException e) {
+            //        e.printStackTrace();
+            //    }
+            //    wdriver.manage().timeouts().implicitlyWait(40000, TimeUnit.MILLISECONDS);
+            //    wdriver.manage().window().maximize();
+            //    return wdriver;
         }
     }
 }
