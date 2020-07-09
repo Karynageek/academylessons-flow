@@ -22,7 +22,7 @@ public class LocalWebDriverManager {
 
     public static WebDriver getWebDriver(String browser) {
         switch (browser) {
-             default:
+            default:
             case "chrome":
                 ChromeOptions options = new ChromeOptions();
                 String os = System.getProperty("os.name").toLowerCase().substring(0, 3);
@@ -35,22 +35,22 @@ public class LocalWebDriverManager {
                 chromeWebDriver.manage().window().maximize();
                 return chromeWebDriver;
             case "chrome_remote_selenoid":
-             DesiredCapabilities capabilities = new DesiredCapabilities();
+                DesiredCapabilities capabilities = new DesiredCapabilities();
                 capabilities.setBrowserName("chrome");
-                capabilities.setVersion("83.0");
+                capabilities.setVersion("81.0");
                 capabilities.setCapability("enableVNC", true);
                 capabilities.setCapability("enableVideo", false);
 
                 RemoteWebDriver driver = null;
                 try {
                     driver = new RemoteWebDriver(
-                            new URL("http://localhost:4444/wd/hub"),
-			capabilities
+                            URI.create("http://localhost:4444/wd/hub").toURL(),
+                            capabilities
                     );
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }
-                driver.manage().timeouts().implicitlyWait(50000, TimeUnit.MILLISECONDS);
+                driver.manage().timeouts().implicitlyWait(40000, TimeUnit.MILLISECONDS);
                 driver.manage().window().maximize();
                 return driver;
             case "chrome_remote_selenium":
@@ -61,7 +61,7 @@ public class LocalWebDriverManager {
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }
-                wdriver.manage().timeouts().implicitlyWait(50000, TimeUnit.MILLISECONDS);
+                wdriver.manage().timeouts().implicitlyWait(40000, TimeUnit.MILLISECONDS);
                 wdriver.manage().window().maximize();
                 return wdriver;
         }
